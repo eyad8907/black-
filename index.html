@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="متجر وخدمات الألعاب وتحسين أداء PUBG والمحاكيات">
+  <title>BLACK ZONE | Gaming Store</title>
+  <style>
+    :root{
+      --bg:#050505; --panel:#0d0d0f; --panel2:#121214; --line:#292929;
+      --text:#f5f5f5; --muted:#aaa; --accent:#ff9d00; --accent2:#ff5e00;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif;line-height:1.8}
+    a{color:inherit;text-decoration:none}
+    .topbar{position:sticky;top:0;z-index:20;background:rgba(5,5,5,.94);backdrop-filter:blur(14px);border-bottom:1px solid #242424}
+    nav{max-width:1320px;margin:auto;min-height:76px;padding:12px 26px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{font-size:27px;font-weight:900;font-style:italic;letter-spacing:1px;color:#fff;text-shadow:0 0 18px var(--accent)}
+    .logo span{color:var(--accent)}
+    .links{display:flex;gap:28px;align-items:center;font-size:14px;color:#ddd}
+    .links a:hover{color:var(--accent)}
+    .navbtn,.btn{display:inline-block;padding:11px 22px;border-radius:10px;background:linear-gradient(110deg,var(--accent),var(--accent2));color:#111;font-weight:bold;border:0;cursor:pointer;transition:.2s}
+    .navbtn:hover,.btn:hover{transform:translateY(-3px);filter:brightness(1.12);box-shadow:0 8px 28px #ff850044}
+    .hero{min-height:570px;position:relative;overflow:hidden;border-bottom:1px solid #28221a;
+      background:radial-gradient(ellipse at 78% 48%,#5a2c0866 0,transparent 35%),
+      linear-gradient(90deg,#050505 0%,#090909 52%,#100b06 100%)}
+    .hero:before{content:"";position:absolute;inset:0;opacity:.18;background:
+      repeating-linear-gradient(135deg,transparent 0 38px,#777 39px,#777 40px,transparent 41px 78px);
+      mask-image:linear-gradient(90deg,transparent,#000)}
+    .hero:after{content:"";position:absolute;width:420px;height:420px;border:1px solid #ff9d0033;border-radius:50%;left:7%;top:70px;box-shadow:0 0 0 28px #ff9d0008,0 0 0 60px #ff9d0006}
+    .hero-inner{position:relative;z-index:1;max-width:1320px;margin:auto;padding:100px 7%;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:50px}
+    .eyebrow{color:var(--accent);font-size:12px;letter-spacing:3px;font-weight:bold}
+    h1{font-size:clamp(42px,6vw,76px);line-height:1.15;margin:12px 0 18px;font-weight:900}
+    h1 span{color:var(--accent);text-shadow:0 0 24px #ff870077}
+    .hero p{color:#c1c1c1;max-width:570px}
+    .chips{display:flex;gap:10px;flex-wrap:wrap;margin:25px 0}
+    .chip{border:1px solid #49402f;border-radius:30px;padding:5px 13px;color:#ddd;font-size:12px;background:#15120d}
+    .hero-art{height:330px;border:1px solid #4a3216;border-radius:24px;position:relative;overflow:hidden;
+      background:linear-gradient(145deg,#211608,#090909 60%),radial-gradient(circle at 50% 45%,#ff8c00,transparent)}
+    .hero-art:before{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,#000),repeating-linear-gradient(0deg,transparent 0 38px,#ffffff0b 39px 40px)}
+    .crosshair{position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);width:180px;height:180px;border:2px solid #ff9d00;border-radius:50%;box-shadow:0 0 35px #ff8c0088,inset 0 0 35px #ff8c0044}
+    .crosshair:before,.crosshair:after{content:"";position:absolute;background:var(--accent);left:50%;top:50%;transform:translate(-50%,-50%)}
+    .crosshair:before{width:240px;height:1px}.crosshair:after{height:240px;width:1px}
+    .art-label{position:absolute;bottom:22px;right:24px;font-size:22px;font-weight:900;letter-spacing:2px}
+    .art-label small{display:block;color:var(--accent);font-size:10px;letter-spacing:4px}
+    section{padding:82px 6%}
+    .section-inner{max-width:1320px;margin:auto}
+    .section-head{text-align:right;margin-bottom:30px}
+    .section-head .eyebrow{letter-spacing:2px}
+    h2{font-size:34px;margin:5px 0}
+    .section-head p{color:var(--muted);margin:0}
+    .product-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+    .card{background:linear-gradient(145deg,#111,#090909);border:1px solid var(--line);border-radius:19px;padding:22px;display:grid;grid-template-columns:42% 1fr;gap:22px;transition:.25s}
+    .card:hover{border-color:#a5651c;transform:translateY(-4px);box-shadow:0 12px 36px #000}
+    .visual{min-height:220px;border-radius:13px;display:flex;align-items:center;justify-content:center;text-align:center;
+      background:radial-gradient(circle at 50% 40%,#794008,#211407 38%,#0a0a0a 75%);border:1px solid #382710;color:#ffb23f;font-weight:900;font-size:25px;text-shadow:0 0 15px #ff8c00}
+    .visual.emu{background:radial-gradient(circle at 50% 40%,#244b32,#101c14 42%,#090909 78%);color:#8ee6a9;border-color:#244b32}
+    .tag{font-size:10px;letter-spacing:2px;color:var(--accent);font-weight:bold}
+    .card h3{font-size:23px;margin:4px 0}
+    .card p,.card li{color:#b8b8b8;font-size:13px}
+    ul{padding-right:18px}
+    .price-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:16px}
+    .price{font-size:22px;font-weight:bold}
+    .services{background:linear-gradient(180deg,#090909,#100c07);border-block:1px solid #292117}
+    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service{padding:27px;border:1px solid #30291f;border-radius:16px;background:#0b0b0b}
+    .num{color:var(--accent);font-size:12px;font-weight:bold}
+    .service h3{margin:8px 0}
+    .service p{color:#aaa;font-size:14px}
+    .community{text-align:center;background:radial-gradient(ellipse at center,#241507 0,#090909 55%,#050505 100%)}
+    .community p{color:#bbb}
+    .community .btn{min-width:230px;margin:8px}
+    .btn.whatsapp{background:#16a05a;color:white}
+    footer{border-top:1px solid #262626;padding:28px 6%;text-align:center;color:#777;font-size:13px}
+    @media(max-width:850px){
+      .links{gap:12px;font-size:12px}.navbtn{display:none}
+      .hero-inner{grid-template-columns:1fr;padding-top:70px}.hero-art{height:240px}
+      .product-grid{grid-template-columns:1fr}.service-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:560px){
+      nav{padding:10px 14px}.links{gap:9px}.links a{font-size:11px}
+      .logo{font-size:21px}.hero-inner{padding:58px 7%}
+      section{padding:58px 5%}.card{grid-template-columns:1fr}.visual{min-height:160px}
+      h2{font-size:28px}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <nav>
+      <a class="logo" href="#home">BLACK<span>ZONE</span></a>
+      <div class="links">
+        <a href="#home">الرئيسية</a><a href="#products">المنتجات</a><a href="#services">الخدمات</a><a href="#community">Discord</a><a href="#about">عن الموقع</a>
+      </div>
+      <a class="navbtn" href="#community">انضم للمجتمع ↗</a>
+    </nav>
+  </div>
+
+  <header class="hero" id="home">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">YOUR GAME. YOUR RULES.</div>
+        <h1>BLACK<br><span>ZONE</span></h1>
+        <h2>كل اللي تحتاجه لعالم الألعاب في مكان واحد</h2>
+        <p>منتجات رقمية وخدمات لتحسين تجربة PUBG والمحاكيات، مع دعم ومساعدة قبل وبعد الطلب.</p>
+        <div class="chips"><span class="chip">PUBG MOBILE</span><span class="chip">محاكيات</span><span class="chip">Gaming Tools</span></div>
+        <a class="btn" href="#products">اكتشف المنتجات ←</a>
+      </div>
+      <div class="hero-art"><div class="crosshair"></div><div class="art-label">BATTLE READY<small>PLAY • COMPETE • WIN</small></div></div>
+    </div>
+  </header>
+
+  <section id="products">
+    <div class="section-inner">
+      <div class="section-head"><div class="eyebrow">DIGITAL PRODUCTS</div><h2>المنتجات</h2><p>اختار المنتج المناسب، واسألنا عن التفاصيل والتوافق قبل الطلب.</p></div>
+      <div class="product-grid">
+        <article class="card">
+          <div class="visual">PUBG<br>GAMING</div>
+          <div><div class="tag">DIGITAL ITEM</div><h3>ملفات وأدوات PUBG</h3><p>مساحة لعرض ملفاتك ومنتجاتك الرقمية الخاصة باللعبة، مع توضيح طريقة الاستخدام والتوافق.</p><ul><li>تفاصيل واضحة قبل الشراء</li><li>مساعدة عبر Discord</li><li>راجع التوافق قبل الطلب</li></ul><div class="price-row"><span class="price">200 ج.م</span><a class="btn" href="#community">اطلب المنتج ↗</a></div></div>
+        </article>
+        <article class="card">
+          <div class="visual emu">EMULATOR<br>SETUP</div>
+          <div><div class="tag">PC & EMULATOR</div><h3>إعدادات المحاكي</h3><p>إرشادات وإعدادات مقترحة لضبط المحاكي وتحسين تجربة اللعب حسب إمكانيات جهازك.</p><ul><li>إعدادات حسب مواصفات جهازك</li><li>شرح خطوة بخطوة</li><li>دعم ومتابعة</li></ul><div class="price-row"><span class="price">حسب الطلب</span><a class="btn" href="#community">اطلب الخدمة ↗</a></div></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="section-inner">
+      <div class="section-head"><div class="eyebrow">BLACK ZONE PERFORMANCE LAB</div><h2>خدمات الجيمينج</h2><p>مساعدة عملية لتحسين تجربة اللعب وإعداد جهازك.</p></div>
+      <div class="service-grid">
+        <article class="service"><div class="num">01</div><h3>ضبط المحاكي</h3><p>مراجعة إعدادات المحاكي وتقديم اقتراحات تناسب مواصفات جهازك.</p></article>
+        <article class="service"><div class="num">02</div><h3>تحسين أداء الكمبيوتر</h3><p>إرشادات لتحسين إعدادات ويندوز واللعبة بشكل آمن.</p></article>
+        <article class="service"><div class="num">03</div><h3>دعم مباشر</h3><p>تواصل معنا للاستفسارات ومتابعة الطلبات عبر Discord.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="community" id="community">
+    <div class="section-inner">
+      <div class="eyebrow">JOIN THE COMMUNITY</div><h2>مكانك معانا على Discord</h2>
+      <p>انضم للمجتمع واسأل عن المنتجات والخدمات وتابع التحديثات.</p>
+      <a class="btn" href="https://discord.gg/5E2etZgbj" target="_blank" rel="noopener">انضم للسيرفر الآن ↗</a>
+      <a class="btn whatsapp" href="https://wa.me/201030194109" target="_blank" rel="noopener">تواصل على WhatsApp ↗</a>
+    </div>
+  </section>
+
+  <footer id="about">© <span id="year"></span> BLACK ZONE — جميع الحقوق محفوظة</footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
